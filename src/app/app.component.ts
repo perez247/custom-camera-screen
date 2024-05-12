@@ -48,11 +48,9 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   private displayCamera() {
-    if (!this.videoStream) { return; }
-
     const ele = this.videoElement()?.nativeElement as HTMLVideoElement;
 
-    if (!ele) { 
+    if (!this.videoStream || !ele) { 
       this.closeCamera();
       return; 
     }
